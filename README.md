@@ -387,6 +387,20 @@ By using this software, you acknowledge and agree that:
 
 **Use at your own risk.** If you are unsure whether your intended use complies with TradingView's terms, do not use this tool.
 
+## Backtest Engine Port Attribution
+
+The `src/tools/backtest/` module ports the strategy backtesting engine from
+[atilaahmettaner/tradingview-mcp](https://github.com/atilaahmettaner/tradingview-mcp)
+(MIT License) into this Node.js fork. The ported code covers six strategies (RSI,
+Bollinger Bands, MACD, EMA Cross, Supertrend, Donchian Channel), the signal→position→
+equity-curve engine, performance metrics (Sharpe, Calmar, max drawdown, win rate), and
+a Yahoo Finance fallback data source (via the `yahoo-finance2` npm package, MIT). The
+Supertrend and Donchian Channel implementations are inlined (~20 LOC each) because they
+are not shipped by the `technicalindicators` npm package.
+
+Port author: trading-dept / Bud Fox, 2026-04-22. MIT License applies. All credit for
+the original Python strategy logic to [atilaahmettaner](https://github.com/atilaahmettaner).
+
 ## License
 
 MIT — see [LICENSE](LICENSE) for details.
